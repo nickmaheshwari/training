@@ -1,2 +1,2 @@
-# various_training
-Random trainng / notes / tutorial projects
+# Training
+Random training / notes / tutorial projects
