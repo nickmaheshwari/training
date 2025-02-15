@@ -26,7 +26,7 @@
 // The result of the merge is [1].
 // Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
 
-package main
+package solutions
 
 import (
 	"fmt"
@@ -49,7 +49,7 @@ func solution(input inputData) []int {
 	return nums1
 }
 
-func main() {
+func TestMergedSortedArray() {
 	testData := []struct {
 		input    inputData
 		expected []int
@@ -67,9 +67,9 @@ func main() {
 
 	for i, tc := range testData {
 		result := solution(tc.input)
-		fmt.Printf("test case %d\n", i+1)
-		fmt.Printf("input: %v", tc.input)
-		fmt.Printf("expected: %v", tc.expected)
-		fmt.Printf("actual result: %v", result)
+		fmt.Println("test case", i+1)
+		fmt.Println("input: ", tc.input)
+		fmt.Println("expected:", tc.expected)
+		fmt.Println("actual result: ", result)
 	}
 }
