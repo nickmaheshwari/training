@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import UserPost from './UserPost';
-import { MOCK_POSTS } from '../api/mock-data/mockUserData';
+import { useState, useEffect, useRef } from "react";
+import UserPost from "./UserPost";
+import { MOCK_POSTS } from "../api/mock-data/mockUserData";
 
 const POSTS_PER_PAGE = 10;
 
@@ -16,23 +16,27 @@ export default function MainFeed() {
   const fetchMorePosts = async () => {
     setLoading(true);
     // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const start = (page - 1) * POSTS_PER_PAGE;
     const end = start + POSTS_PER_PAGE;
     const newPosts = MOCK_POSTS.slice(start, end);
-    
-    setPosts(prevPosts => [...prevPosts, ...newPosts]);
+
+    setPosts((prevPosts) => [...prevPosts, ...newPosts]);
     setLoading(false);
   };
 
   // Intersection Observer setup
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
+      (entries) => {
         const first = entries[0];
-        if (first.isIntersecting && !loading && posts.length < MOCK_POSTS.length) {
-          setPage(prevPage => prevPage + 1);
+        if (
+          first.isIntersecting &&
+          !loading &&
+          posts.length < MOCK_POSTS.length
+        ) {
+          setPage((prevPage) => prevPage + 1);
         }
       },
       { threshold: 1.0 }
@@ -63,7 +67,7 @@ export default function MainFeed() {
           avatarUrl={post.avatarUrl}
         />
       ))}
-      
+
       <div ref={loader} className="flex justify-center p-4">
         {loading && posts.length < MOCK_POSTS.length && (
           <div className="animate-pulse flex space-x-2">
