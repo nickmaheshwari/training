@@ -34,8 +34,8 @@ export default function UserPost({
         
         <div className="flex-1">
           <div className="flex items-center space-x-2">
-            <h2 className="text-blue-700 font-semibold">{username}</h2>
-            <span className="text-blue-400 text-sm">· {timestamp}</span>
+            <h2 className="text-green-700 font-semibold">{username}</h2>
+            <span className="text-green-400 text-sm">· {timestamp}</span>
           </div>
           
           <p className="mt-2 text-gray-900">{content}</p>
